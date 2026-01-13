@@ -1,70 +1,9 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <title>Hutang Supplier</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100 p-6 font-sans">
-
-  <h1 class="text-3xl font-bold text-center mb-6">💰 Hutang Supplier</h1>
-
-  <!-- Tambah Supplier -->
-  <div class="bg-white p-6 rounded shadow max-w-xl mx-auto mb-6">
-    <h2 class="font-semibold text-lg mb-4">Tambah Supplier</h2>
-    <form id="supplierForm" class="space-y-3">
-      <input id="nama_supplier" class="input" placeholder="Nama Supplier" required />
-      <input id="jenis_supplier" class="input" placeholder="Jenis (Makanan / Batik)" required />
-      <input id="bank" class="input" placeholder="Bank" />
-      <input id="no_rekening" class="input" placeholder="No Rekening" />
-      <button class="btn-blue">Simpan Supplier</button>
-    </form>
-  </div>
-
-  <!-- Tambah Hutang -->
-  <div class="bg-white p-6 rounded shadow max-w-xl mx-auto mb-6">
-    <h2 class="font-semibold text-lg mb-4">Tambah Hutang Supplier</h2>
-    <form id="hutangForm" class="space-y-3">
-      <select id="supplier_select" class="input" required></select>
-      <input id="invoice_number" class="input" placeholder="No Invoice" required />
-      <input id="tanggal_invoice" type="date" class="input" required />
-      <input id="due_date" type="date" class="input" required />
-      <input id="total_amount" type="number" class="input" placeholder="Total Hutang" required />
-      <input id="dp_amount" type="number" class="input" placeholder="DP" />
-      <input id="paid_amount" type="number" class="input" placeholder="Pembayaran" />
-      <button class="btn-green">Simpan Hutang</button>
-    </form>
-  </div>
-
-  <!-- Tabel Hutang -->
-  <div class="bg-white p-6 rounded shadow max-w-5xl mx-auto">
-    <h2 class="font-semibold text-lg mb-4">Daftar Hutang Supplier</h2>
-    <table class="w-full border text-sm">
-      <thead class="bg-gray-200">
-        <tr>
-          <th class="th">Supplier</th>
-          <th class="th">Jenis</th>
-          <th class="th">Invoice</th>
-          <th class="th">Jatuh Tempo</th>
-          <th class="th">Total</th>
-          <th class="th">DP</th>
-          <th class="th">Bayar</th>
-          <th class="th">Status</th>
-        </tr>
-      </thead>
-      <tbody id="outstandingTable"></tbody>
-    </table>
-  </div>
-
-<script type="module" src="main.js"></script>
-
-<style>
-  .input { @apply w-full p-2 border rounded }
-  .btn-blue { @apply bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 }
-  .btn-green { @apply bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 }
-  .th { @apply border p-2 }
-</style>
-
-</body>
-</html>
+<table class="w-full bg-white shadow rounded">
+<thead>
+<tr>
+<th>Supplier</th><th>Unit</th><th>Invoice</th>
+<th>Jatuh Tempo</th><th>Sisa</th><th>Status</th>
+</tr>
+</thead>
+<tbody id="data"></tbody>
+</table>
