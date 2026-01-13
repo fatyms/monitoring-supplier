@@ -1,19 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
+  <meta charset="UTF-8">
+  <title>Supplier</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="p-6 bg-gray-100">
+<body class="bg-gray-100 p-6">
 
 <h1 class="text-xl font-bold mb-4">Tambah Supplier</h1>
 
-<form id="supplierForm" class="space-y-3 max-w-md">
-  <input id="nama" placeholder="Nama Supplier" class="input" required>
-  <select id="kategori" class="input"></select>
-  <input id="bank" placeholder="Bank" class="input">
-  <input id="rekening" placeholder="No Rekening" class="input">
+<form id="formSupplier" class="bg-white p-4 rounded space-y-3 max-w-md">
+  <input id="nama" class="w-full border p-2" placeholder="Nama Supplier" required>
 
-  <button class="bg-blue-600 text-white px-4 py-2 rounded">Simpan</button>
+  <select id="kategori" class="w-full border p-2" required>
+    <option value="">Pilih Kategori</option>
+    <option value="Makanan">Makanan</option>
+    <option value="Batik">Batik</option>
+    <option value="Aksesoris">Aksesoris</option>
+  </select>
+
+  <input id="bank" class="w-full border p-2" placeholder="Bank">
+  <input id="rekening" class="w-full border p-2" placeholder="No Rekening">
+
+  <button class="bg-blue-600 text-white px-4 py-2 rounded w-full">
+    Simpan
+  </button>
 </form>
 
 <script type="module" src="js/supplier.js"></script>
