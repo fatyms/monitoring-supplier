@@ -1,7 +1,9 @@
-import { supabase } from './supabase.js'
+import { supabase } from "./supabase.js";
 
-const { data } = await supabase
-  .from('hutang_transaksi')
+const tbody = document.getElementById("data");
+
+const { data, error } = await supabase
+  .from("hutang_transaksi")
   .select(`
     nomor_invoice,
     unit,
@@ -10,18 +12,22 @@ const { data } = await supabase
     dp,
     pembayaran,
     status,
-    supplier(nama_supplier)
+    supplier ( nama_supplier )
   `)
-  .neq('status', 'LUNAS')
+  .neq("status", "LUNAS");
 
-data.forEach(h => {
-  dataEl.innerHTML += `
-  <tr>
-    <td>${h.supplier.nama_supplier}</td>
-    <td>${h.unit}</td>
-    <td>${h.nomor_invoice}</td>
-    <td>${h.tanggal_jatuh_tempo}</td>
-    <td>${h.total_hutang - (h.dp + h.pembayaran)}</td>
-    <td>${h.status}</td>
-  </tr>`
-})
+if (!error) {
+  data.forEach(h => {
+    const sisa = h.total_hutang - (h.dp + h.pembayaran);
+    tbody.innerHTML += `
+      <tr>
+        <td>${h.supplier.nama_supplier}</td>
+        <td>${h.unit}</td>
+        <td>${h.nomor_invoice}</td>
+        <td>${h.tanggal_jatuh_tempo}</td>
+        <td>${sisa}</td>
+        <td>${h.status}</td>
+      </tr>
+    `;
+  });
+}
