@@ -1,66 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Finance Supplier - Outstanding</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>Hutang Supplier</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 p-6 font-sans">
 
-  <h1 class="text-3xl font-bold mb-6 text-center">💰 Hutang Supplier</h1>
+  <h1 class="text-3xl font-bold text-center mb-6">💰 Hutang Supplier</h1>
 
-  <!-- Form Input Supplier (Tetap ada tapi tidak ditampilkan di tabel) -->
-  <div class="bg-white p-6 rounded shadow mb-6 max-w-xl mx-auto">
-    <h2 class="text-xl font-semibold mb-4">Tambah Supplier Baru</h2>
+  <!-- Tambah Supplier -->
+  <div class="bg-white p-6 rounded shadow max-w-xl mx-auto mb-6">
+    <h2 class="font-semibold text-lg mb-4">Tambah Supplier</h2>
     <form id="supplierForm" class="space-y-3">
-      <input type="text" id="nama_supplier" placeholder="Nama Supplier" class="w-full p-2 border rounded" required>
-      <input type="text" id="jenis_supplier" placeholder="Jenis Supplier (Makanan/Batik)" class="w-full p-2 border rounded" required>
-      <input type="text" id="npwp" placeholder="NPWP" class="w-full p-2 border rounded">
-      <input type="text" id="telepon" placeholder="Telepon" class="w-full p-2 border rounded">
-      <input type="email" id="email" placeholder="Email" class="w-full p-2 border rounded">
-      <input type="text" id="bank" placeholder="Bank" class="w-full p-2 border rounded">
-      <input type="text" id="no_rekening" placeholder="No. Rekening" class="w-full p-2 border rounded">
-      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Simpan Supplier</button>
+      <input id="nama_supplier" class="input" placeholder="Nama Supplier" required />
+      <input id="jenis_supplier" class="input" placeholder="Jenis (Makanan / Batik)" required />
+      <input id="bank" class="input" placeholder="Bank" />
+      <input id="no_rekening" class="input" placeholder="No Rekening" />
+      <button class="btn-blue">Simpan Supplier</button>
     </form>
   </div>
 
-  <!-- Form Input Hutang Supplier -->
-  <div class="bg-white p-6 rounded shadow mb-6 max-w-xl mx-auto">
-    <h2 class="text-xl font-semibold mb-4">Tambah Hutang Supplier</h2>
+  <!-- Tambah Hutang -->
+  <div class="bg-white p-6 rounded shadow max-w-xl mx-auto mb-6">
+    <h2 class="font-semibold text-lg mb-4">Tambah Hutang Supplier</h2>
     <form id="hutangForm" class="space-y-3">
-      <select id="supplier_select" class="w-full p-2 border rounded" required></select>
-      <input type="text" id="invoice_number" placeholder="No. Invoice" class="w-full p-2 border rounded" required>
-      <input type="date" id="tanggal_invoice" class="w-full p-2 border rounded" required>
-      <input type="date" id="due_date" class="w-full p-2 border rounded" required>
-      <input type="number" id="total_amount" placeholder="Total Amount" class="w-full p-2 border rounded" required>
-      <input type="number" id="dp_amount" placeholder="DP / Down Payment" class="w-full p-2 border rounded">
-      <input type="number" id="paid_amount" placeholder="Paid Amount" class="w-full p-2 border rounded">
-      <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Simpan Hutang</button>
+      <select id="supplier_select" class="input" required></select>
+      <input id="invoice_number" class="input" placeholder="No Invoice" required />
+      <input id="tanggal_invoice" type="date" class="input" required />
+      <input id="due_date" type="date" class="input" required />
+      <input id="total_amount" type="number" class="input" placeholder="Total Hutang" required />
+      <input id="dp_amount" type="number" class="input" placeholder="DP" />
+      <input id="paid_amount" type="number" class="input" placeholder="Pembayaran" />
+      <button class="btn-green">Simpan Hutang</button>
     </form>
   </div>
 
-  <!-- Tabel Hutang Supplier -->
-  <div class="bg-white p-6 rounded shadow max-w-4xl mx-auto">
-    <h2 class="text-xl font-semibold mb-4">Daftar Hutang / Outstanding</h2>
-    <table class="w-full table-auto border-collapse border">
-      <thead>
-        <tr class="bg-gray-200">
-          <th class="border p-2">Supplier</th>
-          <th class="border p-2">Jenis</th>
-          <th class="border p-2">Invoice</th>
-          <th class="border p-2">Jatuh Tempo</th>
-          <th class="border p-2">Total</th>
-          <th class="border p-2">DP</th>
-          <th class="border p-2">Paid</th>
-          <th class="border p-2">Status</th>
+  <!-- Tabel Hutang -->
+  <div class="bg-white p-6 rounded shadow max-w-5xl mx-auto">
+    <h2 class="font-semibold text-lg mb-4">Daftar Hutang Supplier</h2>
+    <table class="w-full border text-sm">
+      <thead class="bg-gray-200">
+        <tr>
+          <th class="th">Supplier</th>
+          <th class="th">Jenis</th>
+          <th class="th">Invoice</th>
+          <th class="th">Jatuh Tempo</th>
+          <th class="th">Total</th>
+          <th class="th">DP</th>
+          <th class="th">Bayar</th>
+          <th class="th">Status</th>
         </tr>
       </thead>
-      <tbody id="outstandingTable" class="text-center">
-      </tbody>
+      <tbody id="outstandingTable"></tbody>
     </table>
   </div>
 
-  <script src="main.js" type="module"></script>
+<script type="module" src="main.js"></script>
+
+<style>
+  .input { @apply w-full p-2 border rounded }
+  .btn-blue { @apply bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 }
+  .btn-green { @apply bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 }
+  .th { @apply border p-2 }
+</style>
+
 </body>
 </html>
