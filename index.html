@@ -8,11 +8,11 @@
 </head>
 <body class="bg-gray-100 p-6 font-sans">
 
-  <h1 class="text-3xl font-bold mb-6 text-center">💰 Supplier Finance - Outstanding</h1>
+  <h1 class="text-3xl font-bold mb-6 text-center">💰 Hutang Supplier</h1>
 
-  <!-- Form Input Supplier -->
+  <!-- Form Input Supplier (Tetap ada tapi tidak ditampilkan di tabel) -->
   <div class="bg-white p-6 rounded shadow mb-6 max-w-xl mx-auto">
-    <h2 class="text-xl font-semibold mb-4">Tambah Supplier</h2>
+    <h2 class="text-xl font-semibold mb-4">Tambah Supplier Baru</h2>
     <form id="supplierForm" class="space-y-3">
       <input type="text" id="nama_supplier" placeholder="Nama Supplier" class="w-full p-2 border rounded" required>
       <input type="text" id="jenis_supplier" placeholder="Jenis Supplier (Makanan/Batik)" class="w-full p-2 border rounded" required>
@@ -25,7 +25,7 @@
     </form>
   </div>
 
-  <!-- Form Input Hutang -->
+  <!-- Form Input Hutang Supplier -->
   <div class="bg-white p-6 rounded shadow mb-6 max-w-xl mx-auto">
     <h2 class="text-xl font-semibold mb-4">Tambah Hutang Supplier</h2>
     <form id="hutangForm" class="space-y-3">
@@ -40,9 +40,9 @@
     </form>
   </div>
 
-  <!-- Tabel Outstanding -->
+  <!-- Tabel Hutang Supplier -->
   <div class="bg-white p-6 rounded shadow max-w-4xl mx-auto">
-    <h2 class="text-xl font-semibold mb-4">Daftar Outstanding</h2>
+    <h2 class="text-xl font-semibold mb-4">Daftar Hutang / Outstanding</h2>
     <table class="w-full table-auto border-collapse border">
       <thead>
         <tr class="bg-gray-200">
@@ -61,6 +61,6 @@
     </table>
   </div>
 
-  <script src="main.js"></script>
+  <script src="main.js" type="module"></script>
 </body>
 </html>
