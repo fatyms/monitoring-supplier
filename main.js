@@ -1,16 +1,16 @@
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 
 // Supabase config
-const supabaseUrl = 'https://onagcdgzuqoqtowwfvmu.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9uYWdjZGd6dXFvcXRvd3dmdm11Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU5MzU1NDAsImV4cCI6MjA4MTUxMTU0MH0.YydT3OZ6_S1ewnrG4HamOg2eoNE63eYvPolvFtjMNhs';
+const supabaseUrl = 'YOUR_SUPABASE_URL';
+const supabaseKey = 'YOUR_SUPABASE_ANON_KEY';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-// ===================== Supplier =====================
+// ==== Supplier Form ====
 const supplierForm = document.getElementById('supplierForm');
 const supplierSelect = document.getElementById('supplier_select');
 
 async function loadSuppliers() {
-    const { data, error } = await supabase.from('supplier').select('*');
+    const { data } = await supabase.from('supplier').select('*').order('nama_supplier');
     if (data) {
         supplierSelect.innerHTML = data.map(s => `<option value="${s.id_supplier}">${s.nama_supplier} (${s.jenis_supplier})</option>`).join('');
     }
@@ -28,15 +28,15 @@ supplierForm.addEventListener('submit', async e => {
 
     await supabase.from('supplier').insert([{ nama_supplier, jenis_supplier, npwp, telepon, email, bank, no_rekening }]);
     supplierForm.reset();
-    loadSuppliers();
+    loadSuppliers(); // Update dropdown untuk hutang
 });
 
-// ===================== Hutang Supplier =====================
+// ==== Hutang Form ====
 const hutangForm = document.getElementById('hutangForm');
 const outstandingTable = document.getElementById('outstandingTable');
 
 async function loadOutstanding() {
-    const { data, error } = await supabase
+    const { data } = await supabase
         .from('hutang_supplier')
         .select('*, supplier(*)')
         .order('due_date', { ascending: true });
@@ -72,6 +72,6 @@ hutangForm.addEventListener('submit', async e => {
     loadOutstanding();
 });
 
-// Load supplier list and outstanding table on start
+// ==== Init ====
 loadSuppliers();
 loadOutstanding();
